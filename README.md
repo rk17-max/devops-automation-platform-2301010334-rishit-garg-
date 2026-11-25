@@ -128,7 +128,21 @@ kubectl get ingress -n devops-production
 
 ---
 
-## 5. Security & DevSecOps Posture
+## 5. Test Execution Evidence & Code Coverage
+All automated unit and endpoint health tests execute via Jest with full coverage reporting:
+
+```bash
+npm test
+```
+
+![Test Execution Results](docs/screenshots/test_execution_pass.jpg)
+
+- **Test Suite Results**: 6 passed out of 6 tests (`GET /`, `/healthz`, `/ready`, `/metrics`, `GET /api/v1/tasks`, `POST /api/v1/tasks`).
+- **Code Coverage**: 83.6% statements covered across all application endpoints.
+
+---
+
+## 6. Security & DevSecOps Posture
 - **Least Privilege Execution**: Docker container drops root privileges and runs as `appuser:1000`.
 - **Secret Encryption**: Database credentials and JWT secrets stored in Kubernetes `Secret` objects.
 - **Fail-Safe Probes**: Kubernetes `livenessProbe` restarts deadlocked containers, while `readinessProbe` routes traffic away from unhealthy pods.

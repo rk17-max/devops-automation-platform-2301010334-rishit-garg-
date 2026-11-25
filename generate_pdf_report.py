@@ -15,11 +15,12 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, KeepTogether, HRFlowable
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, KeepTogether, HRFlowable, Image
 )
 from reportlab.pdfgen import canvas
 
-PDF_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DevOps_Automation_Platform_Capstone_Report.pdf")
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PDF_PATH = os.path.join(PROJECT_ROOT, "DevOps_Automation_Platform_Capstone_Report.pdf")
 
 class NumberedCanvas(canvas.Canvas):
     def __init__(self, *args, **kwargs):
@@ -113,6 +114,16 @@ def build_pdf():
         spaceBefore=10,
         spaceAfter=5,
         keepWithNext=True
+    )
+
+    caption_style = ParagraphStyle(
+        'CaptionStyle',
+        parent=styles['Normal'],
+        fontName='Helvetica-Bold',
+        fontSize=8.5,
+        leading=11,
+        textColor=colors.HexColor("#1E3A8A"),
+        spaceAfter=4
     )
 
     body_style = ParagraphStyle(
@@ -349,6 +360,17 @@ def build_pdf():
         ('BOTTOMPADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(t_tests)
+
+    # Embed Live Test Run Screenshot Evidence
+    screenshot_path = os.path.join(PROJECT_ROOT, "docs", "screenshots", "test_execution_pass.jpg")
+    if os.path.exists(screenshot_path):
+        story.append(Spacer(1, 8))
+        story.append(Paragraph("<b>Figure 6.1: Live Terminal Execution Evidence — Jest Unit Tests & Code Coverage (83.6%)</b>", caption_style))
+        story.append(Spacer(1, 4))
+        # Keep aspect ratio fitting page width (max width 490pt)
+        img = Image(screenshot_path, width=490, height=270)
+        img.hAlign = 'CENTER'
+        story.append(img)
 
     # ========================================================
     # 7. DISASTER RECOVERY & REPRODUCIBILITY
