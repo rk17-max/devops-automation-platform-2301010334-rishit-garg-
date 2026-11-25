@@ -1,0 +1,26 @@
+{
+  "name": "devops-enterprise-api",
+  "version": "1.0.0",
+  "description": "Production-ready Node.js Express REST API with Prometheus metrics, MongoDB/PostgreSQL support, health checks, and security headers",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --detectOpenHandles --forceExit --coverage",
+    "lint": "eslint src/ tests/"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "prom-client": "^15.1.2",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.3.1",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
