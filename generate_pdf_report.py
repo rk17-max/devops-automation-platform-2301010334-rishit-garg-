@@ -19,7 +19,7 @@ from reportlab.platypus import (
 )
 from reportlab.pdfgen import canvas
 
-PDF_PATH = r"C:\Users\Rishit\.gemini\antigravity\scratch\devops-automation-platform\DevOps_Automation_Platform_Capstone_Report.pdf"
+PDF_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DevOps_Automation_Platform_Capstone_Report.pdf")
 
 class NumberedCanvas(canvas.Canvas):
     def __init__(self, *args, **kwargs):
