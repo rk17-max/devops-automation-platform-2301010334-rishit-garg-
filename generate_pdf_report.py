@@ -53,7 +53,7 @@ class NumberedCanvas(canvas.Canvas):
             # Footer
             self.line(54, 46, 8.5 * inch - 54, 46)
             self.setFont("Helvetica", 8)
-            self.drawString(54, 34, "Author: Rishit  |  Cloud Architecture & DevSecOps Platform")
+            self.drawString(54, 34, "Author: Rishit Garg  |  Cloud Architecture & DevSecOps Platform")
             page_text = f"Page {self._pageNumber} of {page_count}"
             self.drawRightString(8.5 * inch - 54, 34, page_text)
             self.restoreState()
@@ -170,7 +170,7 @@ def build_pdf():
     story.append(HRFlowable(width="100%", thickness=2.5, color=colors.HexColor("#1E3A8A"), spaceBefore=0, spaceAfter=15))
     
     meta_data = [
-        [Paragraph("<b>Candidate Name:</b> Rishit", body_style), Paragraph("<b>Evaluation Target:</b> ZOSIMA Capstone (120 Marks)", body_style)],
+        [Paragraph("<b>Candidate Name:</b> Rishit Garg", body_style), Paragraph("<b>Evaluation Target:</b> ZOSIMA Capstone (120 Marks)", body_style)],
         [Paragraph("<b>Domain:</b> DevOps, Cloud & DevSecOps Engineering", body_style), Paragraph("<b>Date:</b> November 2026", body_style)],
         [Paragraph("<b>Target Stack:</b> Node.js, Docker, Kubernetes, Terraform, Prometheus, Trivy", body_style), Paragraph("<b>Status:</b> Production Ready & Verified", body_style)]
     ]

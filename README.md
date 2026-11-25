@@ -1,7 +1,7 @@
 # Enterprise DevOps Automation Platform
 
 > **Comprehensive End-to-End DevOps Capstone Project (120 Marks)**  
-> **Student:** Rishit  
+> **Student:** Rishit Garg  
 > **Evaluation System:** ZOSIMA Evaluation Platform  
 > **Live Architecture:** Version Control &rarr; CI/CD &rarr; DevSecOps &rarr; Multi-Stage Containers &rarr; Terraform IaC &rarr; Kubernetes Orchestration &rarr; Canary Traffic Shifting &rarr; Prometheus/Grafana Observability.
 
